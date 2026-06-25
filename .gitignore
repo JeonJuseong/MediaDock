@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+
+# Swift/Xcode build output
+.build/
+DerivedData/
+build/
+dist/
+*.xcarchive
+*.dmg
+
+# Xcode user-specific state
+*.xcuserstate
+xcuserdata/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+
+# Bundled third-party executable binaries
+# These are intentionally excluded from the source repository.
+# Release DMGs include signed copies, and source builders should regenerate or
+# download them with the documented scripts/commands in README.md.
+youtube-downloader/yt-exec/yt-dlp
+youtube-downloader/ffmpeg-exec/ffmpeg
+youtube-downloader/ffmpeg-exec/ffprobe

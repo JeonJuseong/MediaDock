@@ -1,0 +1,10 @@
+FFmpeg version: 8.1.2
+FFmpeg source: https://ffmpeg.org/releases/ffmpeg-8.1.2.tar.xz
+FFmpeg SHA-256: 464beb5e7bf0c311e68b45ae2f04e9cc2af88851abb4082231742a74d97b524c
+LAME version: 3.100
+LAME source: https://downloads.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz
+LAME SHA-256: ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e
+Architecture: arm64
+Minimum macOS: 11.0
+FFmpeg configure arguments:
+--prefix=/var/folders/54/g6r40jfs7_x20nrjl18qf66w0000gn/T//mediadock-minimal-ffmpeg.hjsNG7/ffmpeg-install --arch=arm64 --target-os=darwin --cc=clang --disable-autodetect --disable-shared --enable-static --disable-doc --disable-debug --disable-ffplay --enable-libmp3lame --enable-audiotoolbox --enable-videotoolbox --extra-cflags=-arch arm64 -mmacosx-version-min=11.0 -I/var/folders/54/g6r40jfs7_x20nrjl18qf66w0000gn/T//mediadock-minimal-ffmpeg.hjsNG7/lame-install/include --extra-ldflags=-arch arm64 -mmacosx-version-min=11.0 -L/var/folders/54/g6r40jfs7_x20nrjl18qf66w0000gn/T//mediadock-minimal-ffmpeg.hjsNG7/lame-install/lib --extra-libs=-lmp3lame
