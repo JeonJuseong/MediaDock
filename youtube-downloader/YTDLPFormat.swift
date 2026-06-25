@@ -61,19 +61,36 @@ enum VideoFormat: String, CaseIterable, Identifiable {
     var arguments: [String] {
         switch self {
         case .best:
-            ["-f", "bv*+ba/b", "--merge-output-format", "mp4"]
+            Self.compatibleMP4Arguments()
         case .upTo4K:
-            ["-f", "bv*+ba/b", "-S", "res:2160", "--merge-output-format", "mp4"]
+            Self.compatibleMP4Arguments(maxHeight: 2160)
         case .upTo1440p:
-            ["-f", "bv*+ba/b", "-S", "res:1440", "--merge-output-format", "mp4"]
+            Self.compatibleMP4Arguments(maxHeight: 1440)
         case .upTo1080p:
-            ["-f", "bv*+ba/b", "-S", "res:1080", "--merge-output-format", "mp4"]
+            Self.compatibleMP4Arguments(maxHeight: 1080)
         case .upTo720p:
-            ["-f", "bv*+ba/b", "-S", "res:720", "--merge-output-format", "mp4"]
+            Self.compatibleMP4Arguments(maxHeight: 720)
         case .upTo480p:
-            ["-f", "bv*+ba/b", "-S", "res:480", "--merge-output-format", "mp4"]
+            Self.compatibleMP4Arguments(maxHeight: 480)
         case .mkvBest:
             ["-t", "mkv"]
         }
+    }
+
+    private static func compatibleMP4Arguments(maxHeight: Int? = nil) -> [String] {
+        let heightFilter = maxHeight.map { "[height<=\($0)]" } ?? ""
+        let formatSelector = [
+            "bv*\(heightFilter)[vcodec^=avc1]+ba[acodec^=mp4a]",
+            "b\(heightFilter)[vcodec^=avc1][acodec^=mp4a]"
+        ].joined(separator: "/")
+
+        return [
+            "-f",
+            formatSelector,
+            "--merge-output-format",
+            "mp4",
+            "--remux-video",
+            "mp4"
+        ]
     }
 }
