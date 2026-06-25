@@ -1,4 +1,8 @@
-# MediaDock
+<p align="center">
+  <img src="assets/mediadock-icon.png" alt="MediaDock app icon" width="130">
+</p>
+
+<h1 align="center">MediaDock</h1>
 
 ## 한국어
 
