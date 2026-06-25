@@ -84,29 +84,6 @@ arm64 정적 바이너리를 생성합니다.
 - `youtube-downloader/ffmpeg-exec/ffmpeg`
 - `youtube-downloader/ffmpeg-exec/ffprobe`
 
-### GitHub 릴리스 체크리스트
-
-바이너리 재배포에는 README 고지만으로 충분하지 않습니다. 각 릴리스에는
-다음 자산이 모두 포함되어야 합니다.
-
-- `MediaDock.dmg`
-- 해당 태그와 일치하는 MediaDock 소스
-- 번들된 바이너리에 정확히 대응하는 yt-dlp, FFmpeg, LAME 소스를 포함한
-  제3자 소스 아카이브
-- 적용 가능한 모든 라이선스 및 제3자 고지 파일
-
-릴리스 설명에는 위 소스 및 라이선스 자산으로 직접 연결되는 링크를 포함해야 합니다.
-업스트림 URL에만 의존하지 말고, 바이너리 릴리스와 정확히 대응하는 소스를 함께 보관하세요.
-
-제3자 소스 아카이브는 다음 명령으로 생성할 수 있습니다.
-
-```sh
-scripts/package-third-party-sources.sh
-```
-
-DMG를 업로드하기 전에 Developer ID로 서명하고, 최종 배포본을 공증한 뒤,
-공증 티켓을 스테이플링하고 Gatekeeper로 검증하세요.
-
 ### 제3자 소프트웨어
 
 - yt-dlp 2026.03.17 — PyInstaller 결합 저작물은 GPL-3.0-or-later
@@ -203,30 +180,6 @@ Before building, these files must exist:
 - `youtube-downloader/yt-exec/yt-dlp`
 - `youtube-downloader/ffmpeg-exec/ffmpeg`
 - `youtube-downloader/ffmpeg-exec/ffprobe`
-
-## GitHub Release checklist
-
-A README notice alone is not sufficient for binary redistribution. Each release
-should include all of the following assets:
-
-- `MediaDock.dmg`
-- the MediaDock source for the matching tag
-- a third-party source archive containing the exact yt-dlp, FFmpeg, and LAME
-  sources corresponding to the bundled binaries
-- all applicable license and third-party notice files
-
-The release description should link directly to those source and license assets.
-Do not rely only on upstream URLs: retain the exact corresponding source with the
-binary release.
-
-Create the third-party source archive with:
-
-```sh
-scripts/package-third-party-sources.sh
-```
-
-Before uploading the DMG, sign with Developer ID, notarize the final distribution,
-staple the notarization ticket, and verify it with Gatekeeper.
 
 ## Third-party software
 
